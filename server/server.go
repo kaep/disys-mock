@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"net"
-	"os"
 	"time"
 
 	m "mock/proto"
@@ -22,8 +21,8 @@ type Server struct {
 
 func main() {
 
-	var port = os.Args[1]
-
+	//var port = os.Args[1]
+	var port = ":8080"
 	//husk at der skal laves flere servere med forskellige porte og id'er
 	//var port = ":8080"
 
