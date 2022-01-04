@@ -1,16 +1,19 @@
 version: "3"
 
 services: 
-#    client-0: 
-#        container_name: "client-0"
-#        build: 
-#            dockerfile: ./client/Dockerfile
-#        environment: 
-#            - ID=0
-#            - NUMSERVERS=3
-#            - SERVER0=server-0:8080
-#            - SERVER1=server-1:8081
-#            - SERVER2=server-2:8082
+    client-0: 
+        container_name: "client-0"
+        depends_on:
+          - server-0
+        build: 
+            context: ./
+            dockerfile: ./client/Dockerfile
+        environment: 
+            - ID=0
+            - NUMSERVERS=3
+            - SERVER0=server-0:8080
+            - SERVER1=server-1:8081
+            - SERVER2=server-2:8082
 #    client-1: 
 #        container_name: "client-1"
 #        build: 

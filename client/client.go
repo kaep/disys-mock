@@ -26,6 +26,8 @@ func main() {
 	client := Client{}
 	client.Id = 1 //husk at der skal laves flere klienter med forskellige id?
 
+	//wait
+	time.Sleep(2 * time.Second)
 	client.setupFrontend()
 	log.Printf("Frontend has been set up on client %v", client.Id)
 
