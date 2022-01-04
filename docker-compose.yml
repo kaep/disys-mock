@@ -1,0 +1,45 @@
+version: "3"
+
+services: 
+#    client-0: 
+#        container_name: "client-0"
+#        build: 
+#            dockerfile: ./client/Dockerfile
+#        environment: 
+#            - ID=0
+#            - NUMSERVERS=3
+#            - SERVER0=server-0:8080
+#            - SERVER1=server-1:8081
+#            - SERVER2=server-2:8082
+#    client-1: 
+#        container_name: "client-1"
+#        build: 
+#            dockerfile: ./client/Dockerfile
+#        environment: 
+#            - ID=1
+#            - NUMSERVERS=3
+#            - SERVER0=server-0:8080
+#            - SERVER1=server-1:8081
+#            - SERVER2=server-2:8082    
+    server-0: 
+        container_name: "server-0"
+        build: 
+            context: ./
+            dockerfile: ./server/Dockerfile    
+        environment: 
+            - PORT=8080
+            - ID=0  
+#    server-1: 
+#        container_name: "server-1"
+#        build: 
+#            dockerfile: ./server/Dockerfile    
+#        environment: 
+#            - PORT=8081
+#            - ID=1  
+#    server-2: 
+#        container_name: "server-2"
+#        build: 
+#            dockerfile: ./server/Dockerfile    
+#        environment: 
+#            - PORT=8082
+#            - ID=2  
