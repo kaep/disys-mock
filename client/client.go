@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	m "mock/proto"
+	"os"
 	"time"
 
 	"google.golang.org/grpc"
@@ -57,12 +58,13 @@ func (c *Client) setupFrontend() {
 
 	//HUSK AT CONNECTION SKAL DEFER CLOSE()
 
-	var ports = 8080
+	//var ports = 8080
 	var numServers = 1 //HUSK AT ÆNDRE TIL FLERE !
 	c.Front.servers = make(map[int]m.MockClient)
 	for i := 0; i < numServers; i++ {
 		var conn *grpc.ClientConn
-		var port = fmt.Sprintf(":%v", ports+i)
+		//var port = fmt.Sprintf(":%v", ports+i)
+		var port = os.Getenv(fmt.Sprintf("SERVER%v", i))
 		conn, err := grpc.Dial(port, grpc.WithInsecure(), grpc.WithBlock())
 		if err != nil {
 			log.Fatalf("Could not connect: %s", err)
